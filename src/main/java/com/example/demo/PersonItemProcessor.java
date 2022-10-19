@@ -11,8 +11,8 @@ public class PersonItemProcessor implements ItemProcessor<Person, Person> {
 
     @Override
     public Person process(final Person person) throws Exception {
-        final String firstName = person.firstName().toUpperCase();
-        final String lastName = person.lastName().toUpperCase();
+        final String firstName = person.getName().toUpperCase();
+        final String lastName = person.getSurname().toUpperCase();
 
         final Person transformedPerson = new Person(firstName, lastName);
 
