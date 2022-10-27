@@ -45,6 +45,10 @@
   "name":"[Z"
 },
 {
+  "name":"apple.security.AppleProvider",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
   "name":"boolean",
   "queryAllDeclaredMethods":true
 },
@@ -80,8 +84,9 @@
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[
-    {"name":"job","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.batch.core.Step"] }, 
+    {"name":"job","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.batch.core.Step","org.springframework.batch.core.Step"] }, 
     {"name":"reader","parameterTypes":[] }, 
+    {"name":"sshStep","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.transaction.PlatformTransactionManager"] }, 
     {"name":"step1","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.transaction.PlatformTransactionManager","org.springframework.batch.item.database.JdbcBatchItemWriter"] }, 
     {"name":"writer","parameterTypes":["javax.sql.DataSource"] }
   ],
@@ -98,8 +103,9 @@
     {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
   ],
   "queriedMethods":[
-    {"name":"job","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.batch.core.Step"] }, 
+    {"name":"job","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.batch.core.Step","org.springframework.batch.core.Step"] }, 
     {"name":"reader","parameterTypes":[] }, 
+    {"name":"sshStep","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.transaction.PlatformTransactionManager"] }, 
     {"name":"step1","parameterTypes":["org.springframework.batch.core.repository.JobRepository","org.springframework.transaction.PlatformTransactionManager","org.springframework.batch.item.database.JdbcBatchItemWriter"] }, 
     {"name":"writer","parameterTypes":["javax.sql.DataSource"] }
   ]
@@ -146,6 +152,26 @@
     {"name":"<init>","parameterTypes":[] }, 
     {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }
   ]
+},
+{
+  "name":"com.sun.crypto.provider.AESCipher$General",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.ARCFOURCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.BlowfishCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.DESedeCipher",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.sun.crypto.provider.GaloisCounterMode$AESGCM",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"com.zaxxer.hikari.HikariConfig",
@@ -425,6 +451,21 @@
 },
 {
   "name":"javax.sql.XADataSource"
+},
+{
+  "name":"net.schmizz.sshj.transport.Decoder"
+},
+{
+  "name":"net.schmizz.sshj.transport.KeyExchanger"
+},
+{
+  "name":"net.schmizz.sshj.transport.Proposal"
+},
+{
+  "name":"net.schmizz.sshj.transport.Reader"
+},
+{
+  "name":"net.schmizz.sshj.transport.TransportImpl"
 },
 {
   "name":"org.aopalliance.intercept.MethodInterceptor",
@@ -2493,6 +2534,10 @@
 },
 {
   "name":"sun.security.provider.MD5",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"sun.security.provider.NativePRNG",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {

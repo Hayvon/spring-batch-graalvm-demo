@@ -23,9 +23,6 @@
       "pattern":"\\Qapplication.properties\\E"
     }, 
     {
-      "pattern":"\\Qcom/example/demo/BatchConfig$BatchRuntimeHints.class\\E"
-    }, 
-    {
       "pattern":"\\Qcom/example/demo/BatchConfig.class\\E"
     }, 
     {
@@ -333,6 +330,9 @@
     }, 
     {
       "pattern":"\\Qschema.sql\\E"
+    }, 
+    {
+      "pattern":"\\Qsshj.properties\\E"
     }
   ]},
   "bundles":[]
