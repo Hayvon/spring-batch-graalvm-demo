@@ -2,8 +2,8 @@ package com.example.demo;
 
 public class Person {
 
-  private  String name;
-  private  String surname;
+  private String name;
+  private String surname;
 
   public void setName(String name) {
     this.name = name;
