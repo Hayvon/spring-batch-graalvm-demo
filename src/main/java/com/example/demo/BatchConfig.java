@@ -2,6 +2,12 @@ package com.example.demo;
 
 import javax.sql.DataSource;
 
+import com.example.demo.BatchConfig.CustomRuntimeHints;
+import org.springframework.aop.SpringProxy;
+import org.springframework.aop.framework.Advised;
+import org.springframework.aot.hint.RuntimeHints;
+import org.springframework.aot.hint.RuntimeHintsRegistrar;
+import org.springframework.aot.hint.TypeReference;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.job.builder.JobBuilder;
@@ -16,10 +22,13 @@ import org.springframework.batch.item.file.builder.FlatFileItemReaderBuilder;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportRuntimeHints;
+import org.springframework.core.DecoratingProxy;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
+@ImportRuntimeHints(CustomRuntimeHints.class)
 public class BatchConfig {
 
   @Bean
@@ -73,5 +82,16 @@ public class BatchConfig {
         .sql("INSERT INTO people (name, surname) VALUES (:name, :surname)")
         .dataSource(dataSource)
         .build();
+  }
+
+  static class CustomRuntimeHints implements RuntimeHintsRegistrar {
+
+    @Override
+    public void registerHints(final RuntimeHints hints, final ClassLoader classLoader) {
+      hints.proxies()
+          .registerJdkProxy(builder -> builder
+              .proxiedInterfaces(TypeReference.of("org.springframework.batch.core.launch.JobOperator"))
+              .proxiedInterfaces(SpringProxy.class, Advised.class, DecoratingProxy.class));
+    }
   }
 }
