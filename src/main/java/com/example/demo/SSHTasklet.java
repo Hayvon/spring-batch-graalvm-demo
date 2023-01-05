@@ -14,7 +14,7 @@ public class SSHTasklet implements Tasklet {
   public RepeatStatus execute(final StepContribution contribution, final ChunkContext chunkContext) throws Exception {
 
     DefaultConfig config = new DefaultConfig();
-    config.setBouncycastleRuntimeRegistrationEnabled(false);
+    //config.setBouncycastleRuntimeRegistrationEnabled(false);
     SSHClient ssh = new SSHClient(config);
 
     ssh.addHostKeyVerifier(new PromiscuousVerifier());
