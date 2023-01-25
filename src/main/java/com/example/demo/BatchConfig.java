@@ -66,7 +66,7 @@ public class BatchConfig {
   public FlatFileItemReader<Person> reader() {
     return new FlatFileItemReaderBuilder<Person>()
         .name("personReader")
-        .resource(new ClassPathResource("sample-data-test.csv"))
+        .resource(new ClassPathResource("sample-data.csv"))
         .delimited()
         .names("name", "surname")
         .fieldSetMapper(new BeanWrapperFieldSetMapper<>() {{

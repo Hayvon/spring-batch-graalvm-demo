@@ -327,7 +327,13 @@
     }, 
     {
       "pattern":"\\Qsample-data.csv\\E"
-    }, 
+    },
+    {
+      "pattern":"\\Qsample-data-copy.csv\\E"
+    },
+    {
+      "pattern":"\\Qsample-data-test.csv\\E"
+    },
     {
       "pattern":"\\Qschema.sql\\E"
     }, 
