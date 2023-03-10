@@ -1,0 +1,1 @@
+time  build/native/nativeCompile/demo

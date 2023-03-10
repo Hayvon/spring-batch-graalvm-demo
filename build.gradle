@@ -22,13 +22,19 @@ ext {
 dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-batch'
   implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-  runtimeOnly 'com.h2database:h2'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   testImplementation 'org.springframework.batch:spring-batch-test'
-  //implementation 'com.hierynomus:sshj:1.1.1' //Testing with Local version of sshj
-  implementation 'com.hierynomus:sshj:0.34.0'
+  implementation 'com.hierynomus:sshj:0.35.0'
   implementation "org.bouncycastle:bcprov-jdk15on:1.70"
   implementation "org.bouncycastle:bcpkix-jdk15on:1.70"
+  implementation 'com.fasterxml.jackson.core:jackson-core:2.14.2'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+
+  runtimeOnly 'com.h2database:h2'
+  //implementation 'mysql:mysql-connector-java:8.0.32'
+
+  //implementation 'com.hierynomus:sshj:3.0.0' //Testing with Local version of sshj
+  //implementation 'com.oracle.database.jdbc:ojdbc8:21.8.0.0' //Testing ojdbc8 compatibility
 }
 
 dependencyManagement {
@@ -39,12 +45,6 @@ dependencyManagement {
 
 tasks.named('bootBuildImage') {
   buildpacks = ['gcr.io/paketo-buildpacks/bellsoft-liberica:9.9.0-ea', 'gcr.io/paketo-buildpacks/java-native-image']
-}
-
-graalvmNative {
-  metadataRepository {
-    enabled = true
-  }
 }
 
 tasks.named('test') {
